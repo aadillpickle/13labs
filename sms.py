@@ -7,7 +7,7 @@ client = Client(os.environ.get("TWILIO_ACCOUNT_SID"), os.environ.get("TWILIO_AUT
 def send_media_msg(mediaUrl):
     message = client.messages.create(
         media_url=mediaUrl,
-        from_='whatsapp:+14155238886',
-        to='whatsapp:+16472784273'
+        from_=f'whatsapp:+{os.environ.get("TWILIO_PHONE_NUMBER")}', 
+        to=f'whatsapp:+{os.environ.get("MY_PHONE_NUMBER")}'
     )
     return message.sid
